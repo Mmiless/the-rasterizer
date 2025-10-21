@@ -1,0 +1,3 @@
+/Users/mileskirkbride/graphics/the-rasterizer/build/CMakeFiles/rasterizer.dir
+/Users/mileskirkbride/graphics/the-rasterizer/build/CMakeFiles/edit_cache.dir
+/Users/mileskirkbride/graphics/the-rasterizer/build/CMakeFiles/rebuild_cache.dir
