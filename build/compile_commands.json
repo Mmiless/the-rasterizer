@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/Users/mileskirkbride/graphics/the-rasterizer/build",
-  "command": "/usr/bin/clang++ -I/opt/homebrew/Cellar/sdl2/2.32.10/include -I/Users/mileskirkbride/graphics/the-rasterizer/include -isystem /opt/homebrew/Cellar/sdl2/2.32.10/include/SDL2 -g -std=gnu++17 -arch arm64 -o CMakeFiles/rasterizer.dir/src/main.cpp.o -c /Users/mileskirkbride/graphics/the-rasterizer/src/main.cpp",
-  "file": "/Users/mileskirkbride/graphics/the-rasterizer/src/main.cpp",
-  "output": "/Users/mileskirkbride/graphics/the-rasterizer/build/CMakeFiles/rasterizer.dir/src/main.cpp.o"
-}
-]
