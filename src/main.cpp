@@ -1,5 +1,6 @@
 #include <SDL2/SDL.h>
 #include <iostream>
+#include "vector.hpp"
 
 int main(int argc, char* argv[])
 {
