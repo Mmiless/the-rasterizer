@@ -1,6 +1,7 @@
 #include <SDL2/SDL.h>
 #include <iostream>
 #include "vector.hpp"
+#include "framebuffer.h"
 
 int main(int argc, char* argv[])
 {
@@ -26,6 +27,16 @@ int main(int argc, char* argv[])
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
+    SDL_Texture* texture = SDL_CreateTexture(
+        renderer,
+        SDL_PIXELFORMAT_RGBA8888,
+        SDL_TEXTUREACCESS_STREAMING,
+        800,
+        600
+    );
+
+    Framebuffer framebuffer(800, 600);
+
     bool running = true;
     SDL_Event event;
 
@@ -36,18 +47,18 @@ int main(int argc, char* argv[])
             }
         }
 
-        SDL_SetRenderDrawColor(renderer, 30, 144, 255, 255);
-        SDL_RenderClear(renderer);
-
-        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-        SDL_Rect rect = {350, 250, 100, 100};
-        SDL_RenderFillRect(renderer, &rect);
+        framebuffer.clear();
+        framebuffer.setPixel(400, 300, WHITE);
+        SDL_UpdateTexture(texture, NULL, framebuffer.getPixelsRaw(), 800 * sizeof(uint32_t));
+        SDL_RenderCopy(renderer, texture, NULL, NULL);
 
         SDL_RenderPresent(renderer);
 
         SDL_Delay(16);
     }
 
+
+    SDL_DestroyTexture(texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
