@@ -1,3 +1,5 @@
+#pragma once
+
 template<typename T> 
 class Vec2 {
 public:
@@ -9,6 +11,12 @@ public:
     Vec2(Vec2<T>& other){
         x = other.x;
         y = other.y;
+    }
+
+    template<typename U>
+    Vec2(const Vec2<U>& other){ 
+        x = static_cast<T>(other.x);
+        y = static_cast<T>(other.y); 
     }
 
     Vec2 operator+(const Vec2& other){
@@ -49,6 +57,13 @@ public:
         x = other.x;
         y = other.y;
         z = other.z;
+    }
+
+    template<typename U>
+    Vec3(const Vec3<U>& other){ 
+        x = static_cast<T>(other.x);
+        y = static_cast<T>(other.y); 
+        z = static_cast<T>(other.z);
     }
 
     Vec3 operator+(const Vec3& other){

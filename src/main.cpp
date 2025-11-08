@@ -2,6 +2,7 @@
 #include <iostream>
 #include "vector.hpp"
 #include "framebuffer.h"
+#include "draw.h"
 
 int main(int argc, char* argv[])
 {
@@ -36,6 +37,7 @@ int main(int argc, char* argv[])
     );
 
     Framebuffer framebuffer(800, 600);
+    framebuffer.clear();
 
     bool running = true;
     SDL_Event event;
@@ -47,8 +49,14 @@ int main(int argc, char* argv[])
             }
         }
 
-        framebuffer.clear();
-        framebuffer.setPixel(400, 300, WHITE);
+        // Draw triangle
+        Vec3i v0(-1, 1, -5);
+        Vec3i v1(-1, -1, -5);
+        Vec3i v2(1, 0, -5);
+        Triangle t(v0, v1, v2);
+
+        drawTriangleWF(&framebuffer, t, WHITE);
+
         SDL_UpdateTexture(texture, NULL, framebuffer.getPixelsRaw(), 800 * sizeof(uint32_t));
         SDL_RenderCopy(renderer, texture, NULL, NULL);
 
